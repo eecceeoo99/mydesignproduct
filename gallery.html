@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      #featured {
+        max-width: 500px;
+        max-height: 600px;
+        object-fit: cover;
+        cursor: pointer;
+        border: 2px solid rgb(59, 181, 238);
+      }
+      .thumbnail {
+        object-fit: cover;
+        max-width: 180px;
+        max-height: 100px;
+        cursor: pointer;
+        opacity: 0.5;
+        margin: 5px;
+        border: 2px solid black;
+      }
+      .thumbnail:hover {
+        opacity: 1;
+      }
+      #slide-worapper {
+        max-width: 500px;
+        display: flex;
+        min-height: 100px;
+        align-items: center;
+      }
+      #slider {
+        max-width: 440px;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+      }
+      .arrow {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .arrow:hover {
+        opacity: 0.5;
+        width: 35px;
+        height: 35px;
+      }
+      .centerimg {
+        width: 500px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+    </style>
+    <title>Gallery</title>
+  </head>
+  <body>
+    <div class="content-worapper">
+      <div class="column">
+        <div class="centerimg">
+          <img src="img/ba.jpg" alt="" id="featured" />
+        </div>
+        <div id="slide-worapper">
+          <img id="slideLeft" class="arrow" src="img/arrow-left.png" />
+          <div id="slider">
+            <img src="img/ba.jpg" alt="" class="thumbnail active" />
+            <img src="img/ba2.jpg" alt="" class="thumbnail" />
+            <img src="img/ba3.jpg" alt="" class="thumbnail" />
+            <img src="img/p1.jpg" alt="" class="thumbnail" />
+            <img src="img/p2.jpg" alt="" class="thumbnail" />
+            <img src="img/ba3.jpg" alt="" class="thumbnail" />
+            <img src="img/ba3.jpg" alt="" class="thumbnail" />
+            <img src="img/ba3.jpg" alt="" class="thumbnail" />
+            <img src="img/ba3.jpg" alt="" class="thumbnail" />
+          </div>
+          <img id="slideRight" class="arrow" src="img/arrow-right.png" />
+        </div>
+      </div>
+      <div class="column"></div>
+    </div>
+    <script>
+      let thumbnails = document.getElementsByClassName("thumbnail");
+      let activeImages = document.getElementsByClassName("active");
+      for (var i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].addEventListener("mouseover", function () {
+          if (activeImages.length > 0) {
+            console.log(activeImages);
+
+            activeImages[0].classList.remove("active");
+          }
+
+          this.classList.add("active");
+          document.getElementById("featured").src = this.src;
+        });
+      }
+
+      let buttonRight = document.getElementById("slideRight");
+      let buttonLeft = document.getElementById("slideLeft");
+
+      buttonLeft.addEventListener("click", function () {
+        document.getElementById("slider").scrollRight -= 180;
+      });
+
+      buttonRight.addEventListener("click", function () {
+        document.getElementById("slider").scrollLeft += 180;
+      });
+    </script>
+  </body>
+</html>
